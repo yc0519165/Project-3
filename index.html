@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast Notification</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="btns">
+      <button onclick="showToast('success')">Success</button>
+      <button onclick="showToast('error')">Error</button>
+      <button onclick="showToast('invalid')">Invalid</button>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+      function showToast(type) {
+        const toast = document.getElementById("toast");
+
+        if (type === "success") {
+          toast.textContent = "Success! Action completed.";
+          toast.className = "toast show success";
+        } else if (type === "error") {
+          toast.textContent = "Error! Somthing went wroung";
+          toast.className = "toast show error";
+        } else if (type === "invalid") {
+          toast.textContent = "Invaild! Check your input.";
+          toast.className = "toast show invalid";
+        }
+
+        setTimeout(() => {
+          toast.className = toast.className.replace("show", "");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
